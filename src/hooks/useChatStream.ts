@@ -1,5 +1,4 @@
 import { useState, useEffect, useCallback } from 'react';
-import { v4 as uuidv4 } from 'uuid';
 import { apiService } from '../services/apiService';
 import { socketService } from '../services/socketService';
 import { ChatMessage, SearchResult, ApiError } from '../types';
@@ -36,6 +35,7 @@ export const useChatStream = (): UseChatStreamReturn => {
     return () => {
       socketService.disconnect();
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Join session room when sessionId changes
@@ -44,6 +44,7 @@ export const useChatStream = (): UseChatStreamReturn => {
       socketService.joinSession(sessionId);
       loadHistory();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sessionId]);
 
   const initializeSession = async () => {
