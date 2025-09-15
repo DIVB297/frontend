@@ -1,46 +1,95 @@
-# Getting Started with Create React App
+# RAG News Chatbot Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React-based frontend for the RAG-powered chatbot that provides an intuitive interface for news-related conversations.
 
-## Available Scripts
+## 🚀 Features
 
-In the project directory, you can run:
+- **Modern Chat Interface**: Clean, responsive design with smooth animations
+- **Real-time Messaging**: Send messages and receive AI responses instantly
+- **Source Citations**: View and explore the news sources used for each response
+- **Session Management**: Automatic session handling with persistent chat history
+- **Mobile Responsive**: Optimized for all device sizes
+- **Accessibility**: WCAG compliant with proper focus management
 
-### `npm start`
+## 🛠 Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **Framework**: React 18 with TypeScript
+- **Styling**: SCSS
+- **HTTP Client**: Axios
+- **WebSocket**: Socket.io-client
+- **Markdown**: react-markdown for formatted responses
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 📋 Prerequisites
 
-### `npm test`
+- Node.js 18+ and npm
+- Backend server running on `http://localhost:3001`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## ⚙️ Environment Setup
 
-### `npm run build`
+1. Copy the environment template:
+```bash
+cp .env.example .env
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Configure your environment variables in `.env`:
+```env
+REACT_APP_API_BASE_URL=http://localhost:3001/api
+REACT_APP_SOCKET_URL=http://localhost:3001
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🚀 Installation & Running
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Install dependencies:
+```bash
+npm install
+```
 
-### `npm run eject`
+2. Start the development server:
+```bash
+npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+The app will open at `http://localhost:3000`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🏗️ Project Structure
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+src/
+├── components/
+│   ├── ChatMessage/          # Individual chat message component
+│   ├── ChatInput/             # Message input with send functionality
+│   ├── LoadingMessage/        # Typing indicator animation
+│   └── SourcesPanel/          # Collapsible sources display
+├── hooks/
+│   └── useChat.ts            # Custom hook for chat functionality
+├── services/
+│   ├── apiService.ts         # HTTP API client
+│   └── socketService.ts      # WebSocket client
+├── types/
+│   └── index.ts              # TypeScript type definitions
+├── App.tsx                   # Main application component
+└── App.scss                  # Global application styles
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 💬 Features Overview
 
-## Learn More
+### Chat Interface
+- **Message Display**: Distinct styling for user and AI messages
+- **Timestamps**: Shows when each message was sent
+- **Loading States**: Visual feedback during AI processing
+- **Error Handling**: User-friendly error messages
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Source Citations
+- **Expandable Panel**: Toggle sources visibility
+- **Article Metadata**: Title, source, publication date
+- **Relevance Scoring**: Color-coded relevance indicators
+- **External Links**: Direct links to original articles
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Session Management
+- **Auto-Session**: Automatic session creation and management
+- **Persistent History**: Chat history survives page refreshes
+- **Session Controls**: Clear chat or start new session
+
+## 📄 License
+
+MIT License - see LICENSE file for details.
