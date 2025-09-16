@@ -4,7 +4,6 @@ import ChatMessage from './components/ChatMessage/ChatMessage';
 import ChatInput from './components/ChatInput/ChatInput';
 import LoadingMessage from './components/LoadingMessage/LoadingMessage';
 import SourcesPanel from './components/SourcesPanel/SourcesPanel';
-import NewsStatus from './components/NewsStatus/NewsStatus';
 import NewsStatusWidget from './components/NewsStatusWidget/NewsStatusWidget';
 import './App.scss';
 
