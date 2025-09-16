@@ -8,6 +8,7 @@
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  position: relative; // Ensure floating widget positioning works correctly
 
   .app-header {
     background: rgba(255, 255, 255, 0.95);

@@ -1,5 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
-import { ChatResponse, ChatMessage, ChatSession, ApiError } from '../types';
+import { ChatResponse, ChatMessage, ChatSession, ApiError, NewsStatus } from '../types';
 
 const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:3001/api';
 
@@ -132,6 +132,25 @@ class ApiService {
   async getHealth(): Promise<any> {
     try {
       const response = await axios.get(`${this.baseURL}/health`);
+      return response.data;
+    } catch (error: any) {
+      throw this.handleError(error);
+    }
+  }
+
+  // News endpoints
+  async getNewsStatus(): Promise<NewsStatus> {
+    try {
+      const response: AxiosResponse<NewsStatus> = await axios.get(`${this.baseURL}/news/status`);
+      return response.data;
+    } catch (error: any) {
+      throw this.handleError(error);
+    }
+  }
+
+  async triggerNewsUpdate(): Promise<{ message: string; status: string }> {
+    try {
+      const response = await axios.post(`${this.baseURL}/news/update`);
       return response.data;
     } catch (error: any) {
       throw this.handleError(error);

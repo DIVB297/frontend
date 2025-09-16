@@ -28,8 +28,9 @@ export interface SearchResult {
 
 export interface ChatResponse {
   sessionId: string;
-  response: string;
+  message: ChatMessage;
   sources?: SearchResult[];
+  response: string;
   messageId: string;
 }
 
@@ -46,4 +47,24 @@ export interface ApiError {
   error: string;
   details?: any[];
   message?: string;
+}
+
+export interface NewsStatus {
+  lastUpdate: string | null;
+  lastUpdateFormatted: string;
+  nextUpdate: string | null;
+  nextUpdateFormatted: string;
+  documentCount: number;
+  cronEnabled: boolean;
+  cronInterval: number;
+  cronIntervalFormatted: string;
+  stats: {
+    totalRuns: number;
+    successfulRuns: number;
+    failedRuns: number;
+    isRunning: boolean;
+    lastRunAt: string | null;
+    lastSuccessAt: string | null;
+    lastErrorAt: string | null;
+  };
 }
